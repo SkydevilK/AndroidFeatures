@@ -7,3 +7,7 @@
 ### 기능
 - Pull-Down을 할 때 새로고침을 한다.
 - Pull-Up을 할 때 데이터 추가를 한다.
+
+
+### 수정 사항
+- Pull-Up이 아닌 ViewHolder에서 마지막 position이 호출되면 데이터 추가
