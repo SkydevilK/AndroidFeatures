@@ -5,6 +5,9 @@ import android.widget.ImageView;
 import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pullup.entity.MainItem;
+import com.example.pullup.ui.main.MainViewAdapter;
+
 import java.util.ArrayList;
 
 public class Binder {

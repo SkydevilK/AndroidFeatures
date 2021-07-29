@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.example.pullup.R;
 import com.example.pullup.databinding.MainFragmentBinding;
 
+import org.jetbrains.annotations.NotNull;
+
 public class MainFragment extends Fragment {
 
     private MainViewModel viewModel;
@@ -31,9 +33,11 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        viewModel = new ViewModelProvider(getViewModelStore(), new MainViewModelFactory(requireActivity().getApplication())).get(MainViewModel.class);
+        getLifecycle().addObserver(viewModel);
         MainFragmentBinding binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false);
-        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         binding.setViewModel(viewModel);
+        binding.setLifecycleOwner(this);
         viewModel.toast.observe(getViewLifecycleOwner(), s -> {
             if (!s.equals("")) {
                 Toast.makeText(requireContext(), s, Toast.LENGTH_SHORT).show();

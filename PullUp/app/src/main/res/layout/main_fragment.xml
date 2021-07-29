@@ -23,7 +23,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                bind:itemList="@{viewModel.itemList}" />
+                bind:itemList="@{viewModel.itemList}"
+                bind:addItem="@{viewModel.addItemListener}"/>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 
